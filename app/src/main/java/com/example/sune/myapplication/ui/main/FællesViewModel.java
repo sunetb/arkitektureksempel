@@ -10,14 +10,11 @@ import android.widget.Toast;
 import java.util.Date;
 
 public class FællesViewModel extends AndroidViewModel {
-    Application a; //benyttes ikke, men er muligt med AndroidViewModel
 
     private MutableLiveData<String> mineData;
 
     public FællesViewModel(@NonNull Application application) {
         super(application);
-        a=application;
-
     }
 
     public MutableLiveData<String> getMineData() {
@@ -41,8 +38,8 @@ public class FællesViewModel extends AndroidViewModel {
         @Override
         public void run() {
             mineData.setValue("data opdateret d "+new Date());
-            Toast.makeText(a,  mineData.getValue(), Toast.LENGTH_LONG).show();
-            handler.postDelayed(hentData, 5000);
+            Toast.makeText(getApplication(),  mineData.getValue(), Toast.LENGTH_LONG).show();
+            handler.postDelayed(hentData, 4567);
         }
     };
 }
