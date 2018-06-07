@@ -43,7 +43,7 @@ public class FællesViewModel extends AndroidViewModel {
         public void run() {
             mineData.setValue("data opdateret d "+new Date());
             Toast.makeText(a,  mineData.getValue(), Toast.LENGTH_LONG).show();
-            handler.postDelayed(hentData, 10000);
+            handler.postDelayed(hentData, 5000);
         }
     };
 }
