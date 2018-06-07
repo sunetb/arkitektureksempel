@@ -30,7 +30,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
         tekst = v.findViewById(R.id.message);
         knap = v.findViewById(R.id.button);
-        knap.setText("klik inden 4 sekunder");
+        knap.setText("Klik");
         knap.setOnClickListener(this);
         System.out.println("oncreateView fragment 1");
         return v;

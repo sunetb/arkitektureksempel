@@ -17,14 +17,13 @@ public class FællesViewModel extends AndroidViewModel {
     public FællesViewModel(@NonNull Application application) {
         super(application);
         a=application;
-        getMineData();
 
     }
 
     public MutableLiveData<String> getMineData() {
         if (mineData == null) {
             mineData = new MutableLiveData<String>();
-            //Simulerer at initialisering tager 4 sekunder
+
             handler.postDelayed(hentData, 4000);
         }
         return mineData;
@@ -33,7 +32,7 @@ public class FællesViewModel extends AndroidViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        Toast.makeText(a, "onCleared", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplication(), "onCleared", Toast.LENGTH_LONG).show();
         handler.removeCallbacks(hentData);
     }
 
