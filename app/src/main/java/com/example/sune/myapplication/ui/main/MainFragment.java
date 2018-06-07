@@ -16,8 +16,8 @@ import com.example.sune.myapplication.R;
 public class MainFragment extends Fragment implements View.OnClickListener {
 
     private MainViewModel mViewModel;
-    Button b;
-    TextView t;
+    Button knap;
+    TextView tekst;
     public static MainFragment newInstance() {
         return new MainFragment();
     }
@@ -28,9 +28,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.main_fragment, container, false);
 
-        t = v.findViewById(R.id.message);
-        b= v.findViewById(R.id.button);
-        b.setOnClickListener(this);
+        tekst = v.findViewById(R.id.message);
+        knap = v.findViewById(R.id.button);
+        knap.setOnClickListener(this);
         System.out.println("oncreateView");
         return v;
     }
@@ -39,19 +39,18 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
-        t.setText(mViewModel.data);
+        tekst.setText(mViewModel.data);
         // TODO: Use the ViewModel
         System.out.println("onActivityCreated");
     }
 
     @Override
     public void onClick(View v) {
-        t.setText("der blev klikket");
+        tekst.setText("der blev klikket");
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, Fragment2.newInstance())
                 .addToBackStack(null)
                 .commit();
-        //mViewModel.data = "der blev klikket";
-        //t.setText(mViewModel.data);
+
     }
 }

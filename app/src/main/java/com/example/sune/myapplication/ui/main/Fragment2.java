@@ -13,6 +13,9 @@ import com.example.sune.myapplication.R;
 
 public class Fragment2 extends Fragment {
 
+
+    //Fragment som har sin egen ViewModel plus et delt
+
     private Fragment2ViewModel privatViewModel;
     private MainViewModel fællesViewModel;
 
@@ -29,8 +32,8 @@ public class Fragment2 extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        privatViewModel = ViewModelProviders.of(this).get(Fragment2ViewModel.class);
-        fællesViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
+        privatViewModel = ViewModelProviders.of(this).get(Fragment2ViewModel.class); //Fragmentets egen ViewModel
+        fællesViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class); //Aktivitetetens Viewmodel som kan deles
 
         // TODO: Use the ViewModel
     }
