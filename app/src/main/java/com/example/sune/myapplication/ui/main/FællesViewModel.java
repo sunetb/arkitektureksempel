@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
+import java.util.Date;
+
 public class FællesViewModel extends AndroidViewModel {
     Application a; //benyttes ikke, men er muligt med AndroidViewModel
 
@@ -22,7 +24,8 @@ public class FællesViewModel extends AndroidViewModel {
     public MutableLiveData<String> getMineData() {
         if (mineData == null) {
             mineData = new MutableLiveData<String>();
-            hentData();
+            //Simulerer at initialisering tager 4 sekunder
+            handler.postDelayed(hentData, 4000);
         }
         return mineData;
     }
@@ -31,17 +34,16 @@ public class FællesViewModel extends AndroidViewModel {
     protected void onCleared() {
         super.onCleared();
         Toast.makeText(a, "onCleared", Toast.LENGTH_LONG).show();
+        handler.removeCallbacks(hentData);
     }
 
-    void hentData(){
-
-            //Simulerer at initialisering tager 4 sekunder
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mineData.setValue("data opdateret");
-            }
-        }, 4000);
-
-    }
+    Handler handler = new Handler();
+    Runnable hentData = new Runnable() {
+        @Override
+        public void run() {
+            mineData.setValue("data opdateret d "+new Date());
+            Toast.makeText(a,  mineData.getValue(), Toast.LENGTH_LONG).show();
+            handler.postDelayed(hentData, 10000);
+        }
+    };
 }
