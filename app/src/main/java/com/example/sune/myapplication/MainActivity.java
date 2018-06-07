@@ -25,18 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         mViewModel.data = "sat fra aktivitet";
 
-        final Observer<String> minObservatør = new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String newName) {
-                //mitTextview.setText(newName);
-                System.out.println("onchanged kaldt");
-            }
-
-
-        };
-        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-        mViewModel.getCurrentName().observe(this, minObservatør);
-
 
 
 

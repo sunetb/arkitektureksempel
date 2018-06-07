@@ -1,5 +1,6 @@
 package com.example.sune.myapplication.ui.main;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -34,8 +35,22 @@ public class Fragment2 extends Fragment {
         super.onActivityCreated(savedInstanceState);
         privatViewModel = ViewModelProviders.of(this).get(Fragment2ViewModel.class); //Fragmentets egen ViewModel
         fællesViewModel = ViewModelProviders.of(getActivity()).get(FællesViewModel.class); //Aktivitetetens Viewmodel som kan deles
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+        fællesViewModel.getMineData().observe(this, minObservatør);
 
-        // TODO: Use the ViewModel
     }
+
+    final Observer<String> minObservatør = new Observer<String>() {
+        @Override
+        public void onChanged(@Nullable String nystreng) {
+            //mitTextview.setText(nystreng);
+            System.out.println("onchanged kaldt");
+        }
+
+
+    };
+
+
+
 
 }

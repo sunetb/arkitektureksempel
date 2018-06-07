@@ -28,7 +28,7 @@ public class FællesViewModel extends AndroidViewModel {
     // Create a LiveData with a String
 
 
-    public MutableLiveData<String> getCurrentName() {
+    public MutableLiveData<String> getMineData() {
         if (mineData == null) {
             mineData = new MutableLiveData<String>();
         }
