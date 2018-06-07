@@ -15,7 +15,7 @@ import com.example.sune.myapplication.R;
 
 public class MainFragment extends Fragment implements View.OnClickListener {
 
-    private MainViewModel mViewModel;
+    private FællesViewModel mViewModel;
     Button knap;
     TextView tekst;
     public static MainFragment newInstance() {
@@ -38,7 +38,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(FællesViewModel.class);
         tekst.setText(mViewModel.data);
         // TODO: Use the ViewModel
         System.out.println("onActivityCreated");

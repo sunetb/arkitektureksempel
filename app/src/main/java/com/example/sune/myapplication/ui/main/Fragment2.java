@@ -17,7 +17,7 @@ public class Fragment2 extends Fragment {
     //Fragment som har sin egen ViewModel plus et delt
 
     private Fragment2ViewModel privatViewModel;
-    private MainViewModel fællesViewModel;
+    private FællesViewModel fællesViewModel;
 
     public static Fragment2 newInstance() {
         return new Fragment2();
@@ -33,7 +33,7 @@ public class Fragment2 extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         privatViewModel = ViewModelProviders.of(this).get(Fragment2ViewModel.class); //Fragmentets egen ViewModel
-        fællesViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class); //Aktivitetetens Viewmodel som kan deles
+        fællesViewModel = ViewModelProviders.of(getActivity()).get(FællesViewModel.class); //Aktivitetetens Viewmodel som kan deles
 
         // TODO: Use the ViewModel
     }
