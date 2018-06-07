@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
        FællesViewModel mViewModel = ViewModelProviders.of(this).get(FællesViewModel.class);
 
-        mViewModel.data = "sat fra aktivitet";
 
 
 

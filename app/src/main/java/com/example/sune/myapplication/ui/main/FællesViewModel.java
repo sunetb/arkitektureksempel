@@ -8,8 +8,7 @@ import android.support.annotation.NonNull;
 import android.widget.Toast;
 
 public class FællesViewModel extends AndroidViewModel {
-    Application a;
-    public String data = "ikke sat";
+    Application a; //benyttes ikke, men er muligt med AndroidViewModel
 
     private MutableLiveData<String> mineData;
 

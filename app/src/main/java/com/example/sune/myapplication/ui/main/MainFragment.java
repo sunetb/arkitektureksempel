@@ -30,8 +30,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
         tekst = v.findViewById(R.id.message);
         knap = v.findViewById(R.id.button);
+        knap.setText("klik inden 4 sekunder");
         knap.setOnClickListener(this);
-        System.out.println("oncreateView");
+        System.out.println("oncreateView fragment 1");
         return v;
     }
 
@@ -39,9 +40,11 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(getActivity()).get(FællesViewModel.class);
-        tekst.setText(mViewModel.data);
-        // TODO: Use the ViewModel
-        System.out.println("onActivityCreated Fragment 1");
+
+        //Bemærk: getValue() returnerer null første gang vi spørger. Og bliver ikke opdateret før vi vender tilbage til fragment1
+        //Vi burde observere ligesom i Fragment2
+        tekst.setText(mViewModel.getMineData().getValue());
+        System.out.println("onActivityCreated Fragment 1. getValue: "+mViewModel.getMineData().getValue());
     }
 
     @Override

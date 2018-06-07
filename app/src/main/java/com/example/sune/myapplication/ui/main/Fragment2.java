@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.sune.myapplication.R;
 
@@ -20,6 +21,8 @@ public class Fragment2 extends Fragment {
     private Fragment2ViewModel privatViewModel;
     private FællesViewModel fællesViewModel;
 
+    TextView tekstFragment2;
+
     public static Fragment2 newInstance() {
         return new Fragment2();
     }
@@ -27,7 +30,10 @@ public class Fragment2 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment2_fragment, container, false);
+        View rod =  inflater.inflate(R.layout.fragment2_fragment, container, false);
+        tekstFragment2 = rod.findViewById(R.id.tekstfrag2);
+
+        return rod;
     }
 
     @Override
@@ -41,6 +47,7 @@ public class Fragment2 extends Fragment {
             public void onChanged(@Nullable String nystreng) {
                 //mitTextview.setText(nystreng);
                 System.out.println("onchanged kaldt");
+                tekstFragment2.setText(nystreng);
             }
 
 
