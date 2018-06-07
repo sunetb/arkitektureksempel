@@ -36,19 +36,20 @@ public class Fragment2 extends Fragment {
         privatViewModel = ViewModelProviders.of(this).get(Fragment2ViewModel.class); //Fragmentets egen ViewModel
         fællesViewModel = ViewModelProviders.of(getActivity()).get(FællesViewModel.class); //Aktivitetetens Viewmodel som kan deles
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+        final Observer<String> minObservatør = new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String nystreng) {
+                //mitTextview.setText(nystreng);
+                System.out.println("onchanged kaldt");
+            }
+
+
+        };
         fællesViewModel.getMineData().observe(this, minObservatør);
 
     }
 
-    final Observer<String> minObservatør = new Observer<String>() {
-        @Override
-        public void onChanged(@Nullable String nystreng) {
-            //mitTextview.setText(nystreng);
-            System.out.println("onchanged kaldt");
-        }
 
-
-    };
 
 
 

@@ -41,7 +41,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         mViewModel = ViewModelProviders.of(getActivity()).get(FællesViewModel.class);
         tekst.setText(mViewModel.data);
         // TODO: Use the ViewModel
-        System.out.println("onActivityCreated");
+        System.out.println("onActivityCreated Fragment 1");
     }
 
     @Override

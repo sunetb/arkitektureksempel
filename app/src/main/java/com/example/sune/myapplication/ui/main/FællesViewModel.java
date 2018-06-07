@@ -16,21 +16,14 @@ public class FællesViewModel extends AndroidViewModel {
     public FællesViewModel(@NonNull Application application) {
         super(application);
         a=application;
-
-
-
-
+        getMineData();
 
     }
-    // TODO: Implement the ViewModel
-
-
-    // Create a LiveData with a String
-
 
     public MutableLiveData<String> getMineData() {
         if (mineData == null) {
             mineData = new MutableLiveData<String>();
+            hentData();
         }
         return mineData;
     }
@@ -43,12 +36,13 @@ public class FællesViewModel extends AndroidViewModel {
 
     void hentData(){
 
+            //Simulerer at initialisering tager 4 sekunder
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mineData.setValue("hej");
+                mineData.setValue("data opdateret");
             }
-        }, 2050);
+        }, 4000);
 
     }
 }
