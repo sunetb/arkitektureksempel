@@ -1,4 +1,4 @@
-package com.example.sune.ViewModelLiveDataDemo.ui.main;
+package com.example.sune.myapplication.ui.main;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
@@ -10,22 +10,21 @@ import android.widget.Toast;
 import java.util.Date;
 
 public class FællesViewModel extends AndroidViewModel {
-    //Application a; //benyttes til Toast
+    Application a; //benyttes ikke, men er muligt med AndroidViewModel
 
     private MutableLiveData<String> mineData;
 
     public FællesViewModel(@NonNull Application application) {
         super(application);
+        a=application;
 
-        //a = application;
-     
     }
 
     public MutableLiveData<String> getMineData() {
         if (mineData == null) {
             mineData = new MutableLiveData<String>();
 
-            handler.postDelayed(hentData, 4000);//simulerer en forsinkelse på 4 sek
+            handler.postDelayed(hentData, 4000);
         }
         return mineData;
     }
@@ -42,8 +41,8 @@ public class FællesViewModel extends AndroidViewModel {
         @Override
         public void run() {
             mineData.setValue("data opdateret d "+new Date());
-            Toast.makeText(getApplication(),  mineData.getValue(), Toast.LENGTH_LONG).show();
-            handler.postDelayed(hentData, 5000); //Simulerer forsinkelse
+            Toast.makeText(a,  mineData.getValue(), Toast.LENGTH_LONG).show();
+            handler.postDelayed(hentData, 5000);
         }
     };
 }
