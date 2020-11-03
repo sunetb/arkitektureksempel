@@ -1,4 +1,4 @@
-package com.example.sune.myapplication;
+package com.example.sune.ViewModelLiveDataDemo;
 
 import org.junit.Test;
 

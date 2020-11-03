@@ -1,4 +1,4 @@
-package com.example.sune.myapplication.ui.main;
+package com.example.sune.ViewModelLiveDataDemo.ui.main;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.sune.myapplication.R;
+import com.example.sune.ViewModelLiveDataDemo.R;
 
 public class Fragment2 extends Fragment {
 
@@ -21,7 +21,7 @@ public class Fragment2 extends Fragment {
     private Fragment2ViewModel privatViewModel;
     private FællesViewModel fællesViewModel;
 
-    TextView tekstFragment2;
+    TextView tekst;
 
     public static Fragment2 newInstance() {
         return new Fragment2();
@@ -31,7 +31,8 @@ public class Fragment2 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View rod =  inflater.inflate(R.layout.fragment2_fragment, container, false);
-        tekstFragment2 = rod.findViewById(R.id.tekstfrag2);
+        tekst = rod.findViewById(R.id.tekstfrag2);
+
 
         return rod;
     }
@@ -47,7 +48,9 @@ public class Fragment2 extends Fragment {
             public void onChanged(@Nullable String nystreng) {
                 //mitTextview.setText(nystreng);
                 System.out.println("onchanged kaldt");
-                tekstFragment2.setText(nystreng);
+                tekst.setText(R.string.knaptekst);
+                System.out.println(tekst.getText().toString());
+                tekst.setText(nystreng);
             }
 
 

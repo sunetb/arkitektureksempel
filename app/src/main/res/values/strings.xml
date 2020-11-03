@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ViewModelEksperiment</string>
+    <string name="knaptekst">blabla</string>
+
 </resources>

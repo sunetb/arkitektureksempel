@@ -1,4 +1,4 @@
-package com.example.sune.myapplication;
+package com.example.sune.ViewModelLiveDataDemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

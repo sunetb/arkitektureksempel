@@ -1,4 +1,4 @@
-package com.example.sune.myapplication.ui.main;
+package com.example.sune.ViewModelLiveDataDemo.ui.main;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.sune.myapplication.R;
+import com.example.sune.ViewModelLiveDataDemo.R;
 
 public class MainFragment extends Fragment implements View.OnClickListener {
 
